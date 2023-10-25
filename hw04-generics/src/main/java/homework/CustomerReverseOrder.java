@@ -1,10 +1,11 @@
 package homework;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class CustomerReverseOrder {
 
-    Stack <Customer> customers = new Stack<>();
+    Deque<Customer> customers = new ArrayDeque<>();
 
     public void add(Customer customer) {
         customers.push(customer);

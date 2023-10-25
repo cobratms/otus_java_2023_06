@@ -1,9 +1,12 @@
 package ru.otus;
 
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
 import java.util.List;
 
+@Slf4j
 public class HelloOtus {
 
     public static void main(String[] args) {
@@ -11,7 +14,7 @@ public class HelloOtus {
                 "mandarin", "date", "quince");
 
         for (String fruit: fruits) {
-            System.out.println(fruit);
+            log.info(fruit);
         }
     }
 }
