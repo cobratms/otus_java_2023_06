@@ -7,8 +7,6 @@ plugins {
     id("fr.brouillard.oss.gradle.jgitver")
     id("io.spring.dependency-management")
     id("org.springframework.boot") apply false
-    id("name.remal.sonarlint") apply false
-    id("com.diffplug.spotless") apply false
 }
 
 idea {
@@ -114,9 +112,7 @@ allprojects {
             force("org.codehaus.jettison:jettison:1.1")
             force("net.java.dev.jna:jna:5.8.0")
             force("com.google.errorprone:error_prone_annotations:2.7.1")
-            force("org.sonarsource.analyzer-commons:sonar-analyzer-commons:2.3.0.1263")
             force("com.google.code.findbugs:jsr305:3.0.2")
-            force("org.sonarsource.sslr:sslr-core:1.24.0.633")
             force("org.eclipse.platform:org.eclipse.osgi:3.18.400")
             force("org.eclipse.platform:org.eclipse.equinox.common:3.18.0")
         }
@@ -133,14 +129,6 @@ subprojects {
     tasks.withType<JavaCompile> {
         options.encoding = "UTF-8"
         options.compilerArgs.addAll(listOf("-Xlint:all,-serial,-processing", "-Werror"))
-    }
-
-    apply<name.remal.gradle_plugins.sonarlint.SonarLintPlugin>()
-    apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
-    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
-        java {
-            palantirJavaFormat("2.38.0")
-        }
     }
 
     plugins.apply(fr.brouillard.oss.gradle.plugins.JGitverPlugin::class.java)
