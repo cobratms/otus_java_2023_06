@@ -23,5 +23,6 @@ pluginManagement {
 include("hw01-gradle")
 include("hw06-annotations")
 include("hw04-generics")
+include("hw10-byteCodes")
 include("hw16-io")
 
